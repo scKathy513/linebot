@@ -46,6 +46,7 @@ def handle_message(event):
     message = TextSendMessage(text='Ufd8167b43b2292b7097ede32a75675ac')
     message2 = TextSendMessage(text=(event.source.user_id)) #reply userid
     line_bot_api.reply_message(event.reply_token, message)
+    # message = TextSendMessage(text=event)
     print(event)
 
 import os
