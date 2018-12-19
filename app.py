@@ -82,7 +82,7 @@ def handle_message(event):
     else:
         search_result = get_search_engine(_token[0], 3)
         reply = "您所搜尋的結果為：\n"
-        line_bot_api.reply_message(event.reply_token,reply)
+        #line_bot_api.reply_message(event.reply_token,reply)
         for r in search_result:
             result_message = r[0] + "("+r[1]+")"
             line_bot_api.push_message(event.source.user_id, TextSendMessage(text=result_message))
