@@ -73,5 +73,20 @@ highway_df = pd.DataFrame({
     '到達時間': arrival_times,
     '行車時間': travel_times},
     columns = ['車次', '出發時間', '到達時間', '行車時間'])
+#更處
+# 處理訊息
+@handler.add(MessageEvent, message=TextMessage)
+def handle_message(event):
+    msg=event.message.text
+    if '右轉' in msg or '左轉' in msg:
+        message=TextSendMessage(text='columns')
+        line_bot_api.reply_message(event.reply_token,message)
+    elif '出發' in msg or '開始' in msg or '開始記錄' in msg:
+        message=TextSendMessage(text='已開始記錄(๑✧∀✧๑)')
+        line_bot_api.reply_message(event.reply_token,message)
+    elif '到達' in msg or '停止' in msg or '停止記錄' in msg:
+        message=TextSendMessage(text='已停止記錄(๑>ᴗ<๑)')
+        line_bot_api.reply_message(event.reply_token,message)
+#更處
 
 highway_df
